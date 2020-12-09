@@ -29,16 +29,28 @@ function renderMeme() {
     img.src = url;
     img.onload = () => {
         gCtx.drawImage(img, 0, 0);
-        drawText(getMemeText(0), currMeme.lines[0].x, currMeme.lines[0].y);
-        drawText(getMemeText(1), currMeme.lines[1].x, currMeme.lines[1].y);
+        drawText(
+            getMemeText(0),
+            currMeme.lines[0].x,
+            currMeme.lines[0].y,
+            currMeme.lines[0].fontSize,
+            currMeme.lines[0].align
+        );
+        drawText(
+            getMemeText(1),
+            currMeme.lines[1].x,
+            currMeme.lines[1].y,
+            currMeme.lines[1].fontSize,
+            currMeme.lines[1].align
+        );
     };
 }
 
-function drawText(text, x, y) {
+function drawText(text, x, y, fontSize, align) {
     gCtx.strokeStyle = 'black';
     gCtx.fillStyle = 'white';
-    gCtx.font = '40px Impact';
-    gCtx.textAlign = 'center';
+    gCtx.font = `${fontSize}px Impact`;
+    gCtx.textAlign = align;
     gCtx.fillText(text, x, y);
     gCtx.strokeText(text, x, y);
 }
@@ -70,4 +82,17 @@ function showEditMeme() {
 }
 function hideEditMeme() {
     document.querySelector('.meme-editor').classList.add('none');
+}
+function onGotoGalley() {
+    showGallery();
+    hideEditMeme();
+}
+
+function onFontUpdate(diff) {
+    updateFontSize(diff);
+    renderMeme();
+}
+function onTxtAlign(align) {
+    updateTxtAlign(align);
+    renderMeme();
 }

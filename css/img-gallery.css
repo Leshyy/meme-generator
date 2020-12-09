@@ -1,3 +1,15 @@
+.gallery-header {
+    margin-bottom: 10px;
+}
+
+.gallery-header input {
+    background-color: #22252c;
+    border-radius: 1em;
+    border: none;
+    font-size: 1.3125rem;
+    padding-left: 20px;
+}
+
 .gallery-grid {
     gap: 15px;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -5,4 +17,5 @@
 
 .gallery-grid img {
     cursor: pointer;
+    border-radius: 1em;
 }

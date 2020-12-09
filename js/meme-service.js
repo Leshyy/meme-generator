@@ -18,7 +18,7 @@ const gImgs = [
     { id: 15, url: 'imgs/15.jpg', keywords: ['happy'] },
     { id: 16, url: 'imgs/16.jpg', keywords: ['happy'] },
     { id: 17, url: 'imgs/17.jpg', keywords: ['happy'] },
-    { id: 18, url: 'imgs/118.jpg', keywords: ['happy'] },
+    { id: 18, url: 'imgs/18.jpg', keywords: ['happy'] },
 ];
 
 let gMeme = {
@@ -30,14 +30,14 @@ let gMeme = {
             x: 250,
             y: 50,
             txt: 'TOP TEXT',
-            size: 20,
+            fontSize: 40,
             align: 'center',
         },
         {
             x: 250,
             y: 470,
             txt: 'BOTTOM TEXT',
-            size: 20,
+            fontSize: 40,
             align: 'center',
         },
     ],
@@ -81,4 +81,11 @@ function setMemeImg(img) {
 function setMeme(id) {
     const imgSelected = findImg(id);
     setMemeImg(imgSelected);
+}
+
+function updateFontSize(fontSize) {
+    gMeme.lines[gMeme.selectedLineIdx].fontSize += fontSize;
+}
+function updateTxtAlign(align) {
+    gMeme.lines[gMeme.selectedLineIdx].align = align;
 }

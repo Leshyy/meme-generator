@@ -2,12 +2,21 @@
 @import 'header.css';
 @import 'img-gallery.css';
 @import 'layout.css';
+@import 'meme-editor.css';
+
+@font-face {
+    font-family: poppins;
+    src: url(../fonts/Poppins-Regular.ttf);
+}
+
 * {
     box-sizing: border-box;
+    font-family: poppins;
 }
 
 body {
-    background-color: #22252c;
+    background-color: #383b42;
+    margin: 0;
 }
 
 canvas {
@@ -16,4 +25,9 @@ canvas {
 
 img {
     width: 100%;
+}
+
+button {
+    border: none;
+    border-radius: 1em;
 }
