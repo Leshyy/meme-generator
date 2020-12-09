@@ -1,0 +1,15 @@
+@import 'helpers.css';
+@import 'header.css';
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #22252c;
+}
+
+canvas {
+    border: 1px solid black;
+    display: block;
+    margin: 0 auto;
+}
