@@ -1,3 +1,9 @@
 .flex {
     display: flex;
 }
+.grid {
+    display: grid;
+}
+.none {
+    display: none;
+}

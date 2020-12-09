@@ -1,0 +1,8 @@
+.gallery-grid {
+    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+.gallery-grid img {
+    cursor: pointer;
+}

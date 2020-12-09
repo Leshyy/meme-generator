@@ -8,7 +8,7 @@
     </head>
     <body onload="onInit()">
         <header class="header">
-            <div class="header-content flex">
+            <div class="header-content main-layout flex">
                 <h2 class="logo">Memes</h2>
                 <nav class="nav-bar">
                     <a href="#">Gallery</a>
@@ -17,14 +17,26 @@
             </div>
         </header>
         <!-- img gallery -->
-        <section class="img-gallery"></section>
+        <section class="img-gallery main-layout">
+            <div class="galley-header">
+                <input type="text" placeholder="Search" />
+                <div class="key-words"></div>
+            </div>
+            <!-- dynamic render here -->
+            <div class="gallery-grid grid"></div>
+        </section>
         <!-- end img gallery -->
 
         <!-- meme gen -->
-        <section class="meme-editor flex">
+        <section class="meme-editor main-layout flex">
             <canvas id="canvas" width="500" height="500"></canvas>
-            <div class="text-controll">
-                <input type="text" />
+            <div class="text-control">
+                <input
+                    id="meme-txt"
+                    type="text"
+                    onkeyup="onTextChange(this.value)"
+                />
+                <button onclick="onSwitchLines()">Switch Lines</button>
             </div>
         </section>
 

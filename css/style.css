@@ -1,5 +1,7 @@
 @import 'helpers.css';
 @import 'header.css';
+@import 'img-gallery.css';
+@import 'layout.css';
 * {
     box-sizing: border-box;
 }
@@ -10,6 +12,8 @@ body {
 
 canvas {
     border: 1px solid black;
-    display: block;
-    margin: 0 auto;
+}
+
+img {
+    width: 100%;
 }
