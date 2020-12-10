@@ -23,7 +23,11 @@
         <!-- img gallery -->
         <section class="img-gallery main-layout">
             <div class="gallery-header">
-                <input type="text" placeholder="Search" />
+                <input
+                    type="text"
+                    placeholder="Search"
+                    onkeyup="onSearch(this.value)"
+                />
                 <div class="key-words"></div>
             </div>
             <!-- dynamic render here -->
@@ -33,7 +37,14 @@
 
         <!-- meme gen -->
         <section class="meme-editor main-layout flex">
-            <canvas id="canvas" width="500" height="500"></canvas>
+            <canvas
+                id="canvas"
+                width="500"
+                height="500"
+                onmousedown="onCanvasMouseDown(event)"
+                onmouseup="onCanvasMouseUp()"
+                onmousemove="onCanvasMouseMove(event)"
+            ></canvas>
             <div class="text-control">
                 <div class="meme-input">
                     <input
@@ -41,7 +52,7 @@
                         type="text"
                         onkeyup="onTextChange(this.value)"
                     />
-                    <button onclick="onSwitchLines()">Switch Lines</button>
+                    <!-- <button onclick="onSwitchLines()">Switch Lines</button> -->
                 </div>
                 <div class="txt-edit grid">
                     <button onclick="onFontUpdate(5)">Font+</button>
@@ -49,6 +60,12 @@
                     <button onclick="onTxtAlign('end')">Text Left</button>
                     <button onclick="onTxtAlign('center')">Text Center</button>
                     <button onclick="onTxtAlign('start')">Text Right</button>
+                    <a
+                        href="#"
+                        onclick="downloadImg(this)"
+                        download="my-meme.jpg"
+                        >Download</a
+                    >
                 </div>
             </div>
         </section>

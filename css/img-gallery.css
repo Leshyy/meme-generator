@@ -8,11 +8,13 @@
     border: none;
     font-size: 1.3125rem;
     padding-left: 20px;
+    color: white;
 }
 
 .gallery-grid {
     gap: 15px;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    /* margin: 0 10px; for mobile */
 }
 
 .gallery-grid img {
