@@ -17,13 +17,21 @@ function onInit() {
     gCtx = gCanvas.getContext('2d');
     currMeme = getMeme();
 
-    // if (window.innerWidth < 980) {
-    //     currMeme.lines[1].y = gCanvas.height - currMeme.lines[1].fontSize;
-    //     console.log('low txt', currMeme.lines[1].y);
-    // } else currMeme.lines[1].y = gCanvas.height - currMeme.lines[1].fontSize;
+    if (window.innerWidth < 980) {
+        gCanvas.width = 350;
+        gCanvas.height = 350;
+    }
+    setTextPos(gCanvas.width, gCanvas.height);
 
     renderMeme();
     renderGallery();
+}
+
+function setTextPos(canvasWidth, canvasHeight) {
+    currMeme.lines[0].x = canvasWidth / 2;
+    currMeme.lines[0].y = 10;
+    currMeme.lines[1].x = canvasWidth / 2;
+    currMeme.lines[1].y = canvasHeight - currMeme.lines[1].fontSize;
 }
 
 function renderGallery() {
@@ -40,7 +48,7 @@ function renderMeme() {
     const img = new Image();
     img.src = url;
     img.onload = () => {
-        gCtx.drawImage(img, 0, 0);
+        gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
         drawText(
             getMemeText(0),
             currMeme.lines[0].x,
@@ -124,10 +132,10 @@ function onTxtAlign(align) {
     renderMeme();
 }
 function onCanvasMouseDown(ev) {
+    console.log(ev.offsetY);
     gIsDown = true;
     lastClickPos = ev.offsetY;
     // click top txt
-    console.log(ev.offsetY);
     if (
         ev.offsetY >= currMeme.lines[0].y &&
         ev.offsetY <= currMeme.lines[0].y + currMeme.lines[0].fontSize
@@ -162,12 +170,12 @@ function onCanvasMouseMove(ev) {
             lastClickPos >= currMeme.lines[0].y &&
             lastClickPos <= currMeme.lines[0].y + currMeme.lines[0].fontSize
         ) {
-            currMeme.lines[0].y = ev.offsetY;
+            currMeme.lines[0].y = ev.offsetY - 5;
         } else if (
             lastClickPos >= currMeme.lines[1].y &&
             lastClickPos <= currMeme.lines[1].y + currMeme.lines[1].fontSize
         ) {
-            currMeme.lines[1].y = ev.offsetY;
+            currMeme.lines[1].y = ev.offsetY - 5;
         }
         lastClickPos = ev.offsetY;
         renderMeme();
