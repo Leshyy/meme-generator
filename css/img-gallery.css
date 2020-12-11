@@ -14,7 +14,7 @@
 .gallery-grid {
     gap: 15px;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    /* margin: 0 10px; for mobile */
+    padding-bottom: 10px;
 }
 
 .gallery-grid img {

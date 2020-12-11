@@ -1,9 +1,9 @@
 footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    /* position: fixed;
+    bottom: 0; */
     background-color: #313336;
     text-align: center;
+    margin-top: auto;
 }
 
 .footer-links {
